@@ -119,9 +119,10 @@ function DrawerAppBar(props) {
       <CssBaseline />
       <AppBar
         component='nav'
-        elevation={1}
+        elevation={0}
         sx={{
           backgroundColor: '#fff',
+          borderBottom: '1px solid rgb(218,218,218)',
         }}
       >
         <Container maxWidth='lg'>
