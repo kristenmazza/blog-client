@@ -1,4 +1,11 @@
 .cardGrid {
   display: grid;
-  gap: 1rem;
+  gap: 2rem;
+  padding: 0;
+}
+
+@media (min-width: 900px) {
+  .cardGrid {
+    padding: 0 4rem;
+  }
 }
