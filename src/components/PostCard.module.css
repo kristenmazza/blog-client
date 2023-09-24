@@ -14,11 +14,9 @@
   .cardImageWrapper {
     overflow: hidden;
     width: 100%;
-    flex: 1 0 auto;
-    max-height: 300px;
+    flex: 1;
 
     .cardImage {
-      display: block;
       width: 100%;
       height: 100%;
       aspect-ratio: 16 / 9;
@@ -82,6 +80,24 @@
 
   .arrow {
     transform: translateX(0.5rem);
+  }
+}
+
+a {
+  text-decoration: none;
+
+  &:focus,
+  &:hover,
+  &:visited,
+  &:link,
+  &:active {
+    text-decoration: none;
+  }
+}
+
+@media (max-width: 899px) {
+  .cardImageWrapper {
+    max-height: 250px;
   }
 }
 

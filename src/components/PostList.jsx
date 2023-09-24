@@ -36,7 +36,12 @@ export default function PostList() {
 
     return (
       <React.Fragment key={_id}>
-        <PostCard title={title} date={formattedDate} src={uploaded_image} />
+        <PostCard
+          title={title}
+          date={formattedDate}
+          src={uploaded_image}
+          id={_id}
+        />
       </React.Fragment>
     );
   });
