@@ -3,7 +3,7 @@ import Header from './components/Header';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
-import Content from './components/Content';
+import { Outlet } from 'react-router-dom';
 
 const theme = createTheme({
   typography: { fontFamily: 'Inter' },
@@ -15,7 +15,7 @@ function App() {
       <Box sx={{ display: 'flex' }}>
         <CssBaseline />
         <Header />
-        <Content />
+        <Outlet />
       </Box>
     </ThemeProvider>
   );
