@@ -5,6 +5,7 @@ import styles from './PostList.module.css';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { format } from 'date-fns';
+import { CircularProgress } from '@mui/material';
 
 export default function PostList() {
   const [posts, setPosts] = useState([]);
@@ -48,7 +49,9 @@ export default function PostList() {
 
   return (
     <Container maxWidth='lg'>
-      <div className={styles.cardGrid}>{postCards}</div>
+      <div className={styles.cardGrid}>
+        {loading ? <CircularProgress color='inherit' /> : postCards}
+      </div>
     </Container>
   );
 }
