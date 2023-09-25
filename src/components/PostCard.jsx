@@ -5,14 +5,14 @@ import { Link } from 'react-router-dom';
 
 export default function PostCard({ src, date, title, id }) {
   return (
-    <Link to={`/${id}`}>
+    <Link to={`/posts/${id}`}>
       <div className={styles.card}>
         <div className={styles.cardImageWrapper}>
-          <img loading='lazy' src={src} className={styles.cardImage} />
+          <img loading='lazy' src={src} alt='' className={styles.cardImage} />
         </div>
         <div className={styles.cardBody}>
           <p className={styles.cardDate}>{date}</p>
-          <h2 className={styles.cardTitle}>{title}</h2>
+          <h1 className={styles.cardTitle}>{title}</h1>
           <div className={styles.cardAction}>
             <span>View Blog Post</span>
             <ArrowForwardIcon className={styles.arrow} />
