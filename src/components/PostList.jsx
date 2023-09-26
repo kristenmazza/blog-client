@@ -32,16 +32,15 @@ export default function PostList() {
 
   const postCards = posts.map((post) => {
     if (error) return <p> An error was encountered.</p>;
-    const { _id, title, date, uploaded_image } = post;
+    const { _id, slug, title, date, uploaded_image } = post;
     const formattedDate = format(new Date(date), 'MMMM dd, yyyy');
-
     return (
       <React.Fragment key={_id}>
         <PostCard
           title={title}
           date={formattedDate}
           src={uploaded_image}
-          id={_id}
+          slug={slug}
         />
       </React.Fragment>
     );

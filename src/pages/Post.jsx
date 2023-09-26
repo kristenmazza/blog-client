@@ -12,13 +12,17 @@ export default function Post() {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  const { postId } = useParams();
+  const { slug } = useParams();
+
+  //   useEffect(() => {
+  //     console.log(slug); // <-- log param in effect
+  //   }, [slug]);
 
   useEffect(() => {
     const getPost = async () => {
       try {
         const response = await axios.get(
-          import.meta.env.VITE_BACKEND_URL + `/posts/${postId}`,
+          import.meta.env.VITE_BACKEND_URL + `/posts/${slug}`,
         );
         setPost(response.data);
         setError(null);
@@ -30,7 +34,7 @@ export default function Post() {
       }
     };
     getPost();
-  }, [postId]);
+  }, [slug]);
 
   const postDetail = () => {
     if (error) return <p> An error was encountered.</p>;

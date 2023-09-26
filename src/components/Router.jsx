@@ -13,7 +13,7 @@ const Router = () => {
       children: [
         { index: true, element: <Home /> },
         {
-          path: '/posts/:postId',
+          path: '/posts/:slug',
           element: <Post />,
         },
         { path: '*', element: <ErrorPage /> },

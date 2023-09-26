@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import { Link } from 'react-router-dom';
 
-export default function PostCard({ src, date, title, id }) {
+export default function PostCard({ src, date, title, slug }) {
   return (
-    <Link to={`/posts/${id}`}>
+    <Link to={`/posts/${slug}`}>
       <div className={styles.card}>
         <div className={styles.cardImageWrapper}>
           <img loading='lazy' src={src} alt='' className={styles.cardImage} />
@@ -27,5 +27,5 @@ PostCard.propTypes = {
   src: PropTypes.string,
   date: PropTypes.string,
   title: PropTypes.string,
-  id: PropTypes.string,
+  slug: PropTypes.string,
 };

@@ -11,13 +11,13 @@ export default function CommentList() {
   const [commentsLoading, setCommentsLoading] = useState(true);
   const [error, setError] = useState(false);
 
-  const { postId } = useParams();
+  const { slug } = useParams();
 
   useEffect(() => {
     const getComments = async () => {
       try {
         const response = await axios.get(
-          import.meta.env.VITE_BACKEND_URL + `/posts/${postId}/comments`,
+          import.meta.env.VITE_BACKEND_URL + `/posts/${slug}/comments`,
         );
         setComments(response.data);
         setError(null);
@@ -29,7 +29,7 @@ export default function CommentList() {
       }
     };
     getComments();
-  }, [postId]);
+  }, [slug]);
 
   const commentList = comments.map((comment) => {
     if (error) return <p> An error was encountered.</p>;
