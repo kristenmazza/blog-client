@@ -5,7 +5,7 @@ import styles from './PostList.module.css';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { format } from 'date-fns';
-import { CircularProgress } from '@mui/material';
+import { Skeleton, Stack } from '@mui/material';
 
 export default function PostList() {
   const [posts, setPosts] = useState([]);
@@ -30,6 +30,55 @@ export default function PostList() {
     getPosts();
   }, []);
 
+  const postSkeleton = () => {
+    return (
+      <div className={styles.skeleton}>
+        <Stack spacing={3} sx={{ width: '100%' }}>
+          <Skeleton
+            className={styles.skeletonRect}
+            height={250}
+            variant='rounded'
+          />
+          <Skeleton
+            className={styles.skeletonRect}
+            height={250}
+            variant='rounded'
+          />
+          <Skeleton
+            className={styles.skeletonRect}
+            height={250}
+            variant='rounded'
+          />
+          {/* Makes skeleton fill max-width of parent container to match post list */}
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </Stack>
+      </div>
+    );
+  };
+
   const postCards = posts.map((post) => {
     if (error) return <p> An error was encountered.</p>;
     const { _id, slug, title, date, uploaded_image } = post;
@@ -49,7 +98,7 @@ export default function PostList() {
   return (
     <Container maxWidth='lg'>
       <div className={styles.cardGrid}>
-        {loading ? <CircularProgress color='inherit' /> : postCards}
+        {loading ? postSkeleton() : postCards}
       </div>
     </Container>
   );

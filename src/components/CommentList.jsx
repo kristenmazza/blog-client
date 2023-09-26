@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './CommentList.module.css';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { CircularProgress, Divider } from '@mui/material';
+import { Divider } from '@mui/material';
 import { useParams } from 'react-router-dom';
 import dateFormat from 'dateformat';
 
@@ -49,6 +49,12 @@ export default function CommentList() {
   });
 
   return (
-    <>{commentsLoading ? <CircularProgress color='inherit' /> : commentList}</>
+    <>
+      {commentsLoading ? (
+        <div className={styles.loading}>Loading...</div>
+      ) : (
+        commentList
+      )}
+    </>
   );
 }

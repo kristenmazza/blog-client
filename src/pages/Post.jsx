@@ -14,10 +14,6 @@ export default function Post() {
 
   const { slug } = useParams();
 
-  //   useEffect(() => {
-  //     console.log(slug); // <-- log param in effect
-  //   }, [slug]);
-
   useEffect(() => {
     const getPost = async () => {
       try {
