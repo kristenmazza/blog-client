@@ -47,7 +47,7 @@ export default function Post() {
         <div className={styles.postDetails}>
           <Avatar
             alt=''
-            src='/public/images/dark-kmazza.jpg'
+            src='/images/kmazza.jpg'
             sx={{ width: 75, height: 75 }}
             style={{
               border: '2px solid rgb(235, 237, 244)',
