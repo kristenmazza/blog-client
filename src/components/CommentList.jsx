@@ -50,10 +50,12 @@ export default function CommentList() {
 
   return (
     <>
-      {commentsLoading ? (
-        <div className={styles.loading}>Loading...</div>
-      ) : (
+      {commentsLoading && <div className={styles.loading}>Loading...</div>}
+      <h2>Comments</h2>
+      {commentList.length >= 1 ? (
         commentList
+      ) : (
+        <div className={styles.commentIndicator}>No comments yet</div>
       )}
     </>
   );

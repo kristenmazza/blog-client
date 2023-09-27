@@ -6,6 +6,7 @@ import { Avatar, CircularProgress, Divider, Toolbar } from '@mui/material';
 import { useParams } from 'react-router-dom';
 import dateFormat from 'dateformat';
 import CommentList from '../components/CommentList';
+import CommentForm from '../components/CommentForm';
 
 export default function Post() {
   const [post, setPost] = useState([]);
@@ -59,7 +60,6 @@ export default function Post() {
         </div>
         <div className={styles.postBody}>{content}</div>
         <Divider light className={styles.divider} />
-        <h2>Comments</h2>
       </>
     );
   };
@@ -68,6 +68,7 @@ export default function Post() {
     <Container maxWidth='md'>
       <Toolbar />
       {loading ? <CircularProgress color='inherit' /> : postDetail()}
+      <CommentForm />
       <CommentList />
     </Container>
   );
