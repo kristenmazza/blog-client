@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 export default function PostCard({ src, date, title, slug }) {
   return (
-    <Link to={`/posts/${slug}`}>
+    <Link className={styles.postLink} to={`/posts/${slug}`}>
       <div className={styles.card}>
         <div className={styles.cardImageWrapper}>
           <img loading='lazy' src={src} alt='' className={styles.cardImage} />

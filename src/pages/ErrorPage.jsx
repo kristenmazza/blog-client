@@ -7,7 +7,7 @@ export default function ErrorPage() {
 
   return (
     <Container maxWidth='lg'>
-      <Toolbar />
+      <Toolbar sx={{ height: '8rem' }} />
       <h1 className={styles.errorHeading}>Oops!</h1>
       <p>Sorry, an unexpected error has occurred.</p>
       <p className={styles.errorPara}>

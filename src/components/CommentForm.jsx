@@ -104,5 +104,5 @@ export default function CommentForm({ setComments }) {
 }
 
 CommentForm.propTypes = {
-  setComments: PropTypes.string,
+  setComments: PropTypes.func,
 };

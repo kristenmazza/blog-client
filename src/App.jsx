@@ -1,9 +1,9 @@
 import './App.css';
 import Header from './components/Header';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
 import { Outlet } from 'react-router-dom';
+import Contact from './components/Contact';
 
 const theme = createTheme({
   typography: { fontFamily: 'Inter' },
@@ -12,11 +12,10 @@ const theme = createTheme({
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <Box sx={{ display: 'flex' }}>
-        <CssBaseline />
-        <Header />
-        <Outlet />
-      </Box>
+      <CssBaseline />
+      <Header />
+      <Outlet />
+      <Contact />
     </ThemeProvider>
   );
 }

@@ -96,7 +96,7 @@ export default function PostList() {
   });
 
   return (
-    <Container maxWidth='lg'>
+    <Container maxWidth={false} sx={{ maxWidth: '1075px' }}>
       <div className={styles.cardGrid}>
         {loading ? postSkeleton() : postCards}
       </div>

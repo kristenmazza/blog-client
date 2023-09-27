@@ -39,7 +39,7 @@ export default function CommentList({
 }
 
 CommentList.propTypes = {
-  comments: PropTypes.string,
+  comments: PropTypes.array,
   commentsLoading: PropTypes.bool,
   commentsError: PropTypes.string,
 };

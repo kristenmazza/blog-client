@@ -83,7 +83,7 @@
   }
 }
 
-a {
+.postLink {
   text-decoration: none;
 
   &:focus,

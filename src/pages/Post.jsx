@@ -88,7 +88,7 @@ export default function Post() {
 
   return (
     <Container maxWidth='md'>
-      <Toolbar />
+      <Toolbar sx={{ height: '8rem' }} />
       {loading ? <CircularProgress color='inherit' /> : postDetail()}
       <CommentForm setComments={setComments} />
       <CommentList
