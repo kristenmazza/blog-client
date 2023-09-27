@@ -79,7 +79,9 @@ export default function PostList() {
     );
   };
 
-  const postCards = posts.map((post) => {
+  const publishedPosts = posts.filter((post) => post.published === true);
+
+  const postCards = publishedPosts.map((post) => {
     if (error) return <p> An error was encountered.</p>;
     const { _id, slug, title, date, uploaded_image } = post;
     const formattedDate = format(new Date(date), 'MMMM dd, yyyy');
