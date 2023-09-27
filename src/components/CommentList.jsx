@@ -30,9 +30,8 @@ export default function CommentList({
     <>
       <h2>Comments</h2>
       {commentsLoading && <CircularProgress color='inherit' />}
-      {commentList.length >= 1 ? (
-        commentList
-      ) : (
+      {commentList.length >= 1 && commentList}
+      {!commentsLoading && commentList.length < 1 && (
         <div className={styles.commentIndicator}>No comments yet</div>
       )}
     </>
