@@ -9,7 +9,7 @@ export default function CommentList({
   commentsLoading,
   commentsError,
 }) {
-  const commentList = comments.map((comment) => {
+  const commentList = comments.map((comment, index) => {
     if (commentsError) return <p> An error was encountered.</p>;
     const { _id, message, date, author } = comment;
     const formattedDate = dateFormat(date, 'mmmm d, yyyy');
@@ -21,18 +21,18 @@ export default function CommentList({
           <p className={styles.date}>{formattedDate}</p>
           <p className={styles.message}>{message}</p>
         </div>
-        <Divider />
+        {index !== comments.length - 1 ? <Divider /> : null}
       </React.Fragment>
     );
   });
 
   return (
     <>
-      <h2>Comments</h2>
+      <h2 className={styles.commentsHeader}>Comments</h2>
       {commentsLoading && <CircularProgress color='inherit' />}
       {commentList.length >= 1 && commentList}
       {!commentsLoading && commentList.length < 1 && (
-        <div className={styles.commentIndicator}>No comments yet</div>
+        <div className={styles.commentIndicator}>Be the first to comment.</div>
       )}
     </>
   );

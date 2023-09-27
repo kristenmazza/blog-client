@@ -7,6 +7,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  border-radius: 15px;
 }
 
 .mainImage {
@@ -47,6 +48,8 @@
   text-align: left;
   font-size: 2rem;
   font-weight: 800;
+  line-height: 1.3;
+  margin-bottom: 1rem;
 }
 
 .divider {

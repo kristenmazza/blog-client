@@ -24,13 +24,15 @@
   font-size: 0.8rem;
 }
 
-h2 {
+.commentsHeader {
   font-size: 1.3rem;
   font-weight: 600;
   padding: 0;
+  text-align: center;
 }
 
 .commentIndicator {
   font-style: italic;
   font-size: 1rem;
+  text-align: center;
 }

@@ -38,25 +38,16 @@
 
     .cardTitle {
       font-size: 1.5rem;
-      font-weight: 600;
+      font-weight: 400;
     }
 
     .cardDate {
       font-size: 1rem;
       margin: 0;
       text-transform: uppercase;
-      font-weight: 600;
-      background: rgb(2, 0, 36);
-      background: linear-gradient(
-        90deg,
-        rgba(160, 191, 236, 1) 0%,
-        rgba(186, 225, 245, 1) 35%,
-        rgba(223, 210, 143, 1) 100%
-      );
-      letter-spacing: 0.1rem;
-      background-clip: text;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      font-weight: 400;
+      color: rgb(203, 251, 196);
+      letter-spacing: 0.05rem;
     }
 
     .cardAction {

@@ -64,7 +64,10 @@ export default function CommentForm({ setComments }) {
         <FormControl className={styles.form}>
           <StyledTextField
             className={styles.input}
-            id='filled-basic'
+            inputProps={{
+              'aria-labelled-by': 'name',
+            }}
+            id='name'
             label='Name'
             variant='standard'
             value={author}
@@ -73,10 +76,13 @@ export default function CommentForm({ setComments }) {
           />
           <StyledTextField
             className={styles.input}
-            id='filled-basic'
+            inputProps={{
+              'aria-labelled-by': 'comment',
+            }}
+            id='comment'
             label='Comment'
             variant='standard'
-            multiline
+            multiline='true'
             rows={3}
             value={message}
             onChange={(e) => setMessage(e.target.value)}
