@@ -100,7 +100,7 @@ function DrawerAppBar(props) {
           </NavButton>
         </ListItem>
         <ListItem disablePadding sx={{ justifyContent: 'center' }}>
-          <NavButton href='https://kristenmazza.dev/#contact'>
+          <NavButton href={'/#contact'}>
             <ListItemText
               primaryTypographyProps={{ fontSize: '20px', fontWeight: '300' }}
               primary='Contact'
@@ -176,10 +176,8 @@ function DrawerAppBar(props) {
               <NavLink href='https://kristenmazza.dev/#projects'>
                 Projects
               </NavLink>
-              <NavLink href='#'>Blog</NavLink>
-              <NavLink href='https://kristenmazza.dev/#contact'>
-                Contact
-              </NavLink>
+              <NavLink href='https://blog.kristenmazza.dev'>Blog</NavLink>
+              <NavLink href='#contact'>Contact</NavLink>
             </Box>
           </Toolbar>
         </Container>
