@@ -1,6 +1,8 @@
 import { Button, FormControl, TextField } from '@mui/material';
 import styles from './CommentForm.module.css';
 import styled from '@emotion/styled';
+import { useState } from 'react';
+import { useParams } from 'react-router-dom';
 
 const StyledTextField = styled(TextField, {
   shouldForwardProp: (props) => props !== 'focusColor',
@@ -26,39 +28,70 @@ const StyledTextField = styled(TextField, {
 }));
 
 export default function CommentForm() {
+  const [author, setAuthor] = useState();
+  const [message, setMessage] = useState();
+  const { slug } = useParams();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const URL = import.meta.env.VITE_BACKEND_URL + `/posts/${slug}/comments`;
+
+    let result = await fetch(URL, {
+      method: 'post',
+      body: JSON.stringify({ author, message }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+    result = await result.json();
+
+    if (result) {
+      setAuthor('');
+      setMessage('');
+    }
+  };
+
   return (
     <div className={styles.formWrapper}>
-      <FormControl className={styles.form}>
-        <StyledTextField
-          className={styles.input}
-          id='filled-basic'
-          label='Name'
-          variant='standard'
-        />
-        <StyledTextField
-          className={styles.input}
-          id='filled-basic'
-          label='Comment'
-          variant='standard'
-          multiline
-          rows={3}
-          maxRows={8}
-        />
-        <Button
-          className={styles.button}
-          sx={{
-            backgroundColor: 'rgb(96, 107, 196)',
-            color: 'rgb(250, 250, 250)',
-            '&:hover': {
-              transform: 'translateY(-1px)',
-              backgroundColor: 'rgb(111, 122, 202)',
-              cursor: 'pointer',
-            },
-          }}
-        >
-          Post Comment
-        </Button>
-      </FormControl>
+      <form action='' onSubmit={handleSubmit}>
+        <FormControl className={styles.form}>
+          <StyledTextField
+            className={styles.input}
+            id='filled-basic'
+            label='Name'
+            variant='standard'
+            value={author}
+            onChange={(e) => setAuthor(e.target.value)}
+            required
+          />
+          <StyledTextField
+            className={styles.input}
+            id='filled-basic'
+            label='Comment'
+            variant='standard'
+            multiline
+            rows={3}
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+            required
+          />
+          <Button
+            className={styles.button}
+            type='submit'
+            sx={{
+              backgroundColor: 'rgb(96, 107, 196)',
+              color: 'rgb(250, 250, 250)',
+              '&:hover': {
+                transform: 'translateY(-1px)',
+                backgroundColor: 'rgb(111, 122, 202)',
+                cursor: 'pointer',
+              },
+            }}
+          >
+            Post Comment
+          </Button>
+        </FormControl>
+      </form>
     </div>
   );
 }
