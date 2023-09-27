@@ -3,6 +3,7 @@ import styles from './CommentForm.module.css';
 import styled from '@emotion/styled';
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 const StyledTextField = styled(TextField, {
   shouldForwardProp: (props) => props !== 'focusColor',
@@ -27,7 +28,7 @@ const StyledTextField = styled(TextField, {
   },
 }));
 
-export default function CommentForm() {
+export default function CommentForm({ setComments }) {
   const [author, setAuthor] = useState();
   const [message, setMessage] = useState();
   const { slug } = useParams();
@@ -49,6 +50,12 @@ export default function CommentForm() {
       setAuthor('');
       setMessage('');
     }
+
+    fetch(URL)
+      .then((data) => data.json())
+      .then((data) => {
+        setComments(data);
+      });
   };
 
   return (
@@ -95,3 +102,7 @@ export default function CommentForm() {
     </div>
   );
 }
+
+CommentForm.propTypes = {
+  setComments: PropTypes.string,
+};

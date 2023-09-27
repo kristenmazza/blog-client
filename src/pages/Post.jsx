@@ -9,11 +9,33 @@ import CommentList from '../components/CommentList';
 import CommentForm from '../components/CommentForm';
 
 export default function Post() {
+  const { slug } = useParams();
+
   const [post, setPost] = useState([]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  const { slug } = useParams();
+  const [comments, setComments] = useState([]);
+  const [commentsError, setCommentsError] = useState(null);
+  const [commentsLoading, setCommentsLoading] = useState(true);
+
+  useEffect(() => {
+    const getComments = async () => {
+      try {
+        const response = await axios.get(
+          import.meta.env.VITE_BACKEND_URL + `/posts/${slug}/comments`,
+        );
+        setComments(response.data);
+        setCommentsError(null);
+      } catch (err) {
+        setCommentsError(err.message);
+        setComments(null);
+      } finally {
+        setCommentsLoading(false);
+      }
+    };
+    getComments();
+  }, [slug]);
 
   useEffect(() => {
     const getPost = async () => {
@@ -68,8 +90,12 @@ export default function Post() {
     <Container maxWidth='md'>
       <Toolbar />
       {loading ? <CircularProgress color='inherit' /> : postDetail()}
-      <CommentForm />
-      <CommentList />
+      <CommentForm setComments={setComments} />
+      <CommentList
+        comments={comments}
+        commentsLoading={commentsLoading}
+        commentsError={commentsError}
+      />
     </Container>
   );
 }
