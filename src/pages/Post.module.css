@@ -95,3 +95,19 @@
 .divider {
   margin: 6rem 0 !important;
 }
+
+.skeletonRow {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 0 1.5rem 0;
+}
+
+.skeletonCol {
+  display: flex;
+  flex-direction: column;
+}
+
+.skeletonText {
+  margin: 2rem 0;
+}

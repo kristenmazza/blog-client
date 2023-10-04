@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './CommentList.module.css';
-import { CircularProgress, Divider } from '@mui/material';
+import { Box, CircularProgress, Divider } from '@mui/material';
 import dateFormat from 'dateformat';
 import PropTypes from 'prop-types';
 
@@ -29,7 +29,11 @@ export default function CommentList({
   return (
     <>
       <h2 className={styles.commentsHeader}>Comments</h2>
-      {commentsLoading && <CircularProgress color='inherit' />}
+      {commentsLoading && (
+        <Box display='flex' justifyContent='center'>
+          <CircularProgress color='inherit' />
+        </Box>
+      )}
       {commentList.length >= 1 && commentList}
       {!commentsLoading && commentList.length < 1 && (
         <div className={styles.commentIndicator}>Be the first to comment.</div>

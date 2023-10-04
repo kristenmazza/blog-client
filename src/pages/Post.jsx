@@ -2,7 +2,7 @@ import Container from '@mui/material/Container';
 import styles from './Post.module.css';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { Avatar, CircularProgress, Divider, Toolbar } from '@mui/material';
+import { Avatar, Divider, Skeleton, Stack, Toolbar } from '@mui/material';
 import { useParams } from 'react-router-dom';
 import dateFormat from 'dateformat';
 import CommentList from '../components/CommentList';
@@ -55,6 +55,60 @@ export default function Post() {
     getPost();
   }, [slug]);
 
+  const postSkeleton = () => {
+    return (
+      <div className={styles.skeleton}>
+        <Stack spacing={0} sx={{ width: '100%' }}>
+          <Skeleton variant='text' sx={{ fontSize: '3rem' }} />
+          <div className={styles.skeletonRow}>
+            <Skeleton variant='circular' width={80} height={80} />
+            <div className={styles.skeletonCol}>
+              <Skeleton height={40} width={180} />
+              <Skeleton height={30} width={200} />
+            </div>
+          </div>
+          <Skeleton height={400} variant='rounded' />
+          <div className={styles.skeletonText}>
+            <Skeleton variant='text' sx={{ fontSize: '1rem' }} />
+            <Skeleton variant='text' sx={{ fontSize: '1rem' }} />
+            <Skeleton variant='text' sx={{ fontSize: '1rem' }} />
+            <Skeleton variant='text' sx={{ fontSize: '1rem' }} />
+            <Skeleton variant='text' sx={{ fontSize: '1rem' }} />
+            <Skeleton variant='text' sx={{ fontSize: '1rem' }} />
+            <Skeleton variant='text' sx={{ fontSize: '1rem' }} />
+            <Skeleton variant='text' sx={{ fontSize: '1rem' }} />
+            <Skeleton variant='text' sx={{ fontSize: '1rem' }} />
+          </div>
+          {/* Makes skeleton fill max-width of parent container to match post list */}
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </Stack>
+      </div>
+    );
+  };
+
   const postDetail = () => {
     if (error) return <p> An error was encountered.</p>;
     const { title, date, content, uploaded_image } = post;
@@ -98,7 +152,7 @@ export default function Post() {
   return (
     <Container maxWidth='md'>
       <Toolbar sx={{ height: '8rem' }} />
-      {loading ? <CircularProgress color='inherit' /> : postDetail()}
+      {loading ? postSkeleton() : postDetail()}
       <CommentForm setComments={setComments} />
       <CommentList
         comments={comments}
