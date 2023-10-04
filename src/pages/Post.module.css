@@ -62,7 +62,8 @@
     padding: 0.5rem 0;
   }
 
-  & ol {
+  & ol,
+  & ul {
     padding: 0 0 0 3rem;
 
     & p {
@@ -73,6 +74,13 @@
   & img {
     max-width: 100%;
     height: auto;
+  }
+
+  & a {
+    color: rgb(95, 107, 196);
+    text-underline-offset: 5px;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
   }
 }
 
