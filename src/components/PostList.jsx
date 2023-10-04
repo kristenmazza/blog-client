@@ -79,7 +79,9 @@ export default function PostList() {
     );
   };
 
-  const publishedPosts = posts.filter((post) => post.published === true);
+  const publishedPosts = posts
+    .filter((post) => post.published === true)
+    .sort((a, b) => new Date(b.date) - new Date(a.date));
 
   const postCards = publishedPosts.map((post) => {
     if (error) return <p> An error was encountered.</p>;
