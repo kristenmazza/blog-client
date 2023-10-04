@@ -59,25 +59,25 @@ export default function Post() {
     return (
       <div className={styles.skeleton}>
         <Stack spacing={0} sx={{ width: '100%' }}>
-          <Skeleton variant='text' sx={{ fontSize: '3rem' }} />
+          <Skeleton variant='text' sx={{ fontSize: '2rem' }} />
           <div className={styles.skeletonRow}>
-            <Skeleton variant='circular' width={80} height={80} />
+            <Skeleton variant='circular' width={75} height={75} />
             <div className={styles.skeletonCol}>
-              <Skeleton height={40} width={180} />
-              <Skeleton height={30} width={200} />
+              <Skeleton height={35} width={120} />
+              <Skeleton height={30} width={130} />
             </div>
           </div>
           <Skeleton height={400} variant='rounded' />
           <div className={styles.skeletonText}>
-            <Skeleton variant='text' sx={{ fontSize: '1rem' }} />
-            <Skeleton variant='text' sx={{ fontSize: '1rem' }} />
-            <Skeleton variant='text' sx={{ fontSize: '1rem' }} />
-            <Skeleton variant='text' sx={{ fontSize: '1rem' }} />
-            <Skeleton variant='text' sx={{ fontSize: '1rem' }} />
-            <Skeleton variant='text' sx={{ fontSize: '1rem' }} />
-            <Skeleton variant='text' sx={{ fontSize: '1rem' }} />
-            <Skeleton variant='text' sx={{ fontSize: '1rem' }} />
-            <Skeleton variant='text' sx={{ fontSize: '1rem' }} />
+            <Skeleton variant='text' sx={{ fontSize: '1.1rem' }} />
+            <Skeleton variant='text' sx={{ fontSize: '1.1rem' }} />
+            <Skeleton variant='text' sx={{ fontSize: '1.1rem' }} />
+            <Skeleton variant='text' sx={{ fontSize: '1.1rem' }} />
+            <Skeleton variant='text' sx={{ fontSize: '1.1rem' }} />
+            <Skeleton variant='text' sx={{ fontSize: '1.1rem' }} />
+            <Skeleton variant='text' sx={{ fontSize: '1.1rem' }} />
+            <Skeleton variant='text' sx={{ fontSize: '1.1rem' }} />
+            <Skeleton variant='text' sx={{ fontSize: '1.1rem' }} />
           </div>
           {/* Makes skeleton fill max-width of parent container to match post list */}
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
