@@ -42,6 +42,38 @@
 
 .postBody {
   text-align: left;
+
+  & h1 {
+    font-size: 1.8rem;
+    padding-top: 1rem;
+  }
+
+  & h2 {
+    font-size: 1.3rem;
+    padding-top: 1rem;
+  }
+
+  & h3 {
+    font-size: 1rem;
+    padding: 0.3rem 0;
+  }
+
+  & p {
+    padding: 0.5rem 0;
+  }
+
+  & ol {
+    padding: 0 0 0 3rem;
+
+    & p {
+      padding: 0.1rem;
+    }
+  }
+
+  & img {
+    max-width: 100%;
+    height: auto;
+  }
 }
 
 .postTitle {

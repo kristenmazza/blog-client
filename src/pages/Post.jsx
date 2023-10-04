@@ -60,6 +60,15 @@ export default function Post() {
     const { title, date, content, uploaded_image } = post;
     const formattedDate = dateFormat(date, 'mmmm d, yyyy');
 
+    const renderHTML = () => {
+      return (
+        <div
+          className={styles.postBody}
+          dangerouslySetInnerHTML={{ __html: content }}
+        ></div>
+      );
+    };
+
     return (
       <>
         <h1 className={styles.postTitle}>{title}</h1>
@@ -80,7 +89,7 @@ export default function Post() {
         <div className={styles.imageWrapper}>
           <img className={styles.mainImage} src={uploaded_image} alt='' />
         </div>
-        <div className={styles.postBody}>{content}</div>
+        {renderHTML()}
         <Divider light className={styles.divider} />
       </>
     );
