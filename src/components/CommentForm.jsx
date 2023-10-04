@@ -29,8 +29,8 @@ const StyledTextField = styled(TextField, {
 }));
 
 export default function CommentForm({ setComments }) {
-  const [author, setAuthor] = useState();
-  const [message, setMessage] = useState();
+  const [author, setAuthor] = useState('');
+  const [message, setMessage] = useState('');
   const { slug } = useParams();
 
   const handleSubmit = async (e) => {
@@ -65,7 +65,7 @@ export default function CommentForm({ setComments }) {
           <StyledTextField
             className={styles.input}
             inputProps={{
-              'aria-labelled-by': 'name',
+              'aria-labelledby': 'name',
             }}
             id='name'
             label='Name'
@@ -77,12 +77,12 @@ export default function CommentForm({ setComments }) {
           <StyledTextField
             className={styles.input}
             inputProps={{
-              'aria-labelled-by': 'comment',
+              'aria-labelledby': 'comment',
             }}
             id='comment'
             label='Comment'
             variant='standard'
-            multiline='true'
+            multiline={true}
             rows={3}
             value={message}
             onChange={(e) => setMessage(e.target.value)}
