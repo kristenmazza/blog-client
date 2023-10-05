@@ -1,4 +1,3 @@
-import './App.css';
 import Header from './components/Header';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
