@@ -2,7 +2,14 @@ import Container from '@mui/material/Container';
 import styles from './Post.module.css';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { Avatar, Divider, Skeleton, Stack, Toolbar } from '@mui/material';
+import {
+  Avatar,
+  Divider,
+  Skeleton,
+  Stack,
+  Toolbar,
+  useMediaQuery,
+} from '@mui/material';
 import { useParams } from 'react-router-dom';
 import dateFormat from 'dateformat';
 import CommentList from '../components/CommentList';
@@ -18,6 +25,7 @@ export default function Post() {
   const [comments, setComments] = useState([]);
   const [commentsError, setCommentsError] = useState(null);
   const [commentsLoading, setCommentsLoading] = useState(true);
+  const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
 
   useEffect(() => {
     const getComments = async () => {
@@ -59,51 +67,104 @@ export default function Post() {
     return (
       <div className={styles.skeleton}>
         <Stack spacing={0} sx={{ width: '100%' }}>
-          <Skeleton variant='text' sx={{ fontSize: '2rem' }} />
+          <Skeleton
+            variant='text'
+            sx={{
+              fontSize: '2rem',
+              bgcolor: prefersDarkMode ? 'grey.900' : 'grey.300',
+            }}
+          />
           <div className={styles.skeletonRow}>
-            <Skeleton variant='circular' width={75} height={75} />
+            <Skeleton
+              variant='circular'
+              sx={{ bgcolor: prefersDarkMode ? 'grey.900' : 'grey.300' }}
+              width={75}
+              height={75}
+            />
             <div className={styles.skeletonCol}>
-              <Skeleton height={35} width={120} />
-              <Skeleton height={30} width={130} />
+              <Skeleton
+                sx={{ bgcolor: prefersDarkMode ? 'grey.900' : 'grey.300' }}
+                height={35}
+                width={120}
+              />
+              <Skeleton
+                sx={{ bgcolor: prefersDarkMode ? 'grey.900' : 'grey.300' }}
+                height={30}
+                width={130}
+              />
             </div>
           </div>
-          <Skeleton height={400} variant='rounded' />
+          <Skeleton
+            sx={{ bgcolor: prefersDarkMode ? 'grey.900' : 'grey.300' }}
+            height={400}
+            variant='rounded'
+          />
           <div className={styles.skeletonText}>
-            <Skeleton variant='text' sx={{ fontSize: '1.1rem' }} />
-            <Skeleton variant='text' sx={{ fontSize: '1.1rem' }} />
-            <Skeleton variant='text' sx={{ fontSize: '1.1rem' }} />
-            <Skeleton variant='text' sx={{ fontSize: '1.1rem' }} />
-            <Skeleton variant='text' sx={{ fontSize: '1.1rem' }} />
-            <Skeleton variant='text' sx={{ fontSize: '1.1rem' }} />
-            <Skeleton variant='text' sx={{ fontSize: '1.1rem' }} />
-            <Skeleton variant='text' sx={{ fontSize: '1.1rem' }} />
-            <Skeleton variant='text' sx={{ fontSize: '1.1rem' }} />
+            <Skeleton
+              variant='text'
+              sx={{
+                fontSize: '1.1rem',
+                bgcolor: prefersDarkMode ? 'grey.900' : 'grey.300',
+              }}
+            />
+            <Skeleton
+              variant='text'
+              sx={{
+                fontSize: '1.1rem',
+                bgcolor: prefersDarkMode ? 'grey.900' : 'grey.300',
+              }}
+            />
+            <Skeleton
+              variant='text'
+              sx={{
+                fontSize: '1.1rem',
+                bgcolor: prefersDarkMode ? 'grey.900' : 'grey.300',
+              }}
+            />
+            <Skeleton
+              variant='text'
+              sx={{
+                fontSize: '1.1rem',
+                bgcolor: prefersDarkMode ? 'grey.900' : 'grey.300',
+              }}
+            />
+            <Skeleton
+              variant='text'
+              sx={{
+                fontSize: '1.1rem',
+                bgcolor: prefersDarkMode ? 'grey.900' : 'grey.300',
+              }}
+            />
+            <Skeleton
+              variant='text'
+              sx={{
+                fontSize: '1.1rem',
+                bgcolor: prefersDarkMode ? 'grey.900' : 'grey.300',
+              }}
+            />
+            <Skeleton
+              variant='text'
+              sx={{
+                fontSize: '1.1rem',
+                bgcolor: prefersDarkMode ? 'grey.900' : 'grey.300',
+              }}
+            />
+            <Skeleton
+              variant='text'
+              sx={{
+                fontSize: '1.1rem',
+                bgcolor: prefersDarkMode ? 'grey.900' : 'grey.300',
+              }}
+            />
+            <Skeleton
+              variant='text'
+              sx={{
+                fontSize: '1.1rem',
+                bgcolor: prefersDarkMode ? 'grey.900' : 'grey.300',
+              }}
+            />
           </div>
-          {/* Makes skeleton fill max-width of parent container to match post list */}
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <div style={{ width: '100%' }}></div>
         </Stack>
       </div>
     );
@@ -144,7 +205,12 @@ export default function Post() {
           <img className={styles.mainImage} src={uploaded_image} alt='' />
         </div>
         {renderHTML()}
-        <Divider light className={styles.divider} />
+        <Divider
+          sx={{
+            bgcolor: prefersDarkMode ? 'rgb(80, 80, 80)' : 'rgb(230, 230, 230)',
+          }}
+          className={styles.divider}
+        />
       </>
     );
   };
