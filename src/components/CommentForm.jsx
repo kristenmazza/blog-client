@@ -67,6 +67,29 @@ export default function CommentForm({ setComments }) {
             className={styles.input}
             inputProps={{
               'aria-labelledby': 'name',
+              style: {
+                color: prefersDarkMode ? 'rgb(230, 230, 230' : '#000000',
+              },
+            }}
+            sx={{
+              '& label': {
+                color: prefersDarkMode ? 'rgb(230, 230, 230)' : '#000000',
+              },
+              '& .MuiInput-underline:before': {
+                borderBottomColor: prefersDarkMode
+                  ? 'rgb(230, 230, 230)'
+                  : '#000000',
+              },
+              '& .MuiInput-underline:after': {
+                borderBottomColor: prefersDarkMode
+                  ? 'rgb(230, 230, 230)'
+                  : '#000000',
+              },
+              '& .MuiInput-underline:hover:before': {
+                borderBottom: prefersDarkMode
+                  ? '2px solid rgb(230, 230, 230)'
+                  : '2px solid #000000',
+              },
             }}
             id='name'
             label='Name'
@@ -79,6 +102,29 @@ export default function CommentForm({ setComments }) {
             className={styles.input}
             inputProps={{
               'aria-labelledby': 'comment',
+              style: {
+                color: prefersDarkMode ? 'rgb(230, 230, 230' : '#000000',
+              },
+            }}
+            sx={{
+              '& label': {
+                color: prefersDarkMode ? 'rgb(230, 230, 230)' : '#000000',
+              },
+              '& .MuiInput-underline:before': {
+                borderBottomColor: prefersDarkMode
+                  ? 'rgb(230, 230, 230)'
+                  : '#000000',
+              },
+              '& .MuiInput-underline:after': {
+                borderBottomColor: prefersDarkMode
+                  ? 'rgb(230, 230, 230)'
+                  : '#000000',
+              },
+              '& .MuiInput-underline:hover:before': {
+                borderBottom: prefersDarkMode
+                  ? '2px solid rgb(230, 230, 230)'
+                  : '2px solid #000000',
+              },
             }}
             id='comment'
             label='Comment'
