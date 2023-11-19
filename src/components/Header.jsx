@@ -16,6 +16,7 @@ import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import Link from '@mui/material/Link';
 import { styled } from '@mui/material/styles';
+import { useMediaQuery } from '@mui/material';
 
 const drawerWidth = 240;
 
@@ -36,20 +37,21 @@ const NavLink = styled(Link)(() => ({
 }));
 
 const NavButton = styled(Button)(() => ({
-  color: '#151515',
+  // color: '#151515',
   textAlign: 'center',
   textTransform: 'Capitalize',
   textDecoration: 'none',
   width: '100%',
   '&:hover': {
-    backgroundColor: '#ebedf4',
-    color: '#151515',
+    // backgroundColor: '#ebedf4',
+    // color: '#151515',
   },
 }));
 
 function DrawerAppBar(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
+  const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
 
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
@@ -62,11 +64,11 @@ function DrawerAppBar(props) {
           href='https://kristenmazza.dev/'
           underline='none'
           sx={{
-            color: '#151515',
+            color: prefersDarkMode ? 'rgb(230, 230, 230)' : '#151515',
             fontSize: '25px',
             fontWeight: '700',
             '&:hover': {
-              color: '#151515',
+              color: prefersDarkMode ? 'rgb(230, 230, 230)' : '#151515',
             },
           }}
         >
@@ -76,7 +78,17 @@ function DrawerAppBar(props) {
       <Divider />
       <List>
         <ListItem disablePadding sx={{ justifyContent: 'center' }}>
-          <NavButton href='https://kristenmazza.dev/#about'>
+          <NavButton
+            sx={{
+              color: prefersDarkMode ? 'rgb(230, 230, 230)' : '#151515',
+              '&:hover': {
+                backgroundColor: prefersDarkMode
+                  ? 'rgb(33, 35, 48)'
+                  : '#ebedf4',
+              },
+            }}
+            href='https://kristenmazza.dev/#about'
+          >
             <ListItemText
               primaryTypographyProps={{ fontSize: '20px', fontWeight: '300' }}
               primary='About'
@@ -84,7 +96,17 @@ function DrawerAppBar(props) {
           </NavButton>
         </ListItem>
         <ListItem disablePadding sx={{ justifyContent: 'center' }}>
-          <NavButton href='https://kristenmazza.dev/#projects'>
+          <NavButton
+            sx={{
+              color: prefersDarkMode ? 'rgb(230, 230, 230)' : '#151515',
+              '&:hover': {
+                backgroundColor: prefersDarkMode
+                  ? 'rgb(33, 35, 48)'
+                  : '#ebedf4',
+              },
+            }}
+            href='https://kristenmazza.dev/#projects'
+          >
             <ListItemText
               primaryTypographyProps={{ fontSize: '20px', fontWeight: '300' }}
               primary='Projects'
@@ -92,7 +114,17 @@ function DrawerAppBar(props) {
           </NavButton>
         </ListItem>
         <ListItem disablePadding sx={{ justifyContent: 'center' }}>
-          <NavButton href='#'>
+          <NavButton
+            sx={{
+              color: prefersDarkMode ? 'rgb(230, 230, 230)' : '#151515',
+              '&:hover': {
+                backgroundColor: prefersDarkMode
+                  ? 'rgb(33, 35, 48)'
+                  : '#ebedf4',
+              },
+            }}
+            href='#'
+          >
             <ListItemText
               primaryTypographyProps={{ fontSize: '20px', fontWeight: '300' }}
               primary='Blog'
@@ -100,7 +132,17 @@ function DrawerAppBar(props) {
           </NavButton>
         </ListItem>
         <ListItem disablePadding sx={{ justifyContent: 'center' }}>
-          <NavButton href={'/#contact'}>
+          <NavButton
+            sx={{
+              color: prefersDarkMode ? 'rgb(230, 230, 230)' : '#151515',
+              '&:hover': {
+                backgroundColor: prefersDarkMode
+                  ? 'rgb(33, 35, 48)'
+                  : '#ebedf4',
+              },
+            }}
+            href={'/#contact'}
+          >
             <ListItemText
               primaryTypographyProps={{ fontSize: '20px', fontWeight: '300' }}
               primary='Contact'
@@ -121,8 +163,10 @@ function DrawerAppBar(props) {
         component='nav'
         elevation={0}
         sx={{
-          backgroundColor: '#fff',
-          borderBottom: '1px solid rgb(218,218,218)',
+          backgroundColor: prefersDarkMode ? 'rgb(18, 18, 18)' : '#fff',
+          borderBottom: prefersDarkMode
+            ? '1px solid rgb(42, 41, 41)'
+            : '1px solid rgb(218,218,218)',
         }}
       >
         <Container maxWidth='lg'>
@@ -135,9 +179,11 @@ function DrawerAppBar(props) {
               sx={{
                 mr: 2,
                 display: { sm: 'none' },
-                color: '#151515',
+                color: prefersDarkMode ? 'rgb(230, 230, 230)' : '#151515',
                 '&:hover': {
-                  backgroundColor: '#ebedf4',
+                  backgroundColor: prefersDarkMode
+                    ? 'rgb(33, 35, 48)'
+                    : '#ebedf4',
                 },
               }}
             >
@@ -156,11 +202,11 @@ function DrawerAppBar(props) {
                 href='https://kristenmazza.dev/'
                 underline='none'
                 sx={{
-                  color: '#151515',
+                  color: prefersDarkMode ? 'rgb(230, 230, 230)' : '#151515',
                   fontSize: '25px',
                   fontWeight: '700',
                   '&:hover': {
-                    color: '#151515',
+                    color: prefersDarkMode ? 'rgb(230, 230, 230)' : '#151515',
                   },
                 }}
               >
@@ -172,12 +218,50 @@ function DrawerAppBar(props) {
                 display: { xs: 'none', sm: 'block' },
               }}
             >
-              <NavLink href='https://kristenmazza.dev/#about'>About</NavLink>
-              <NavLink href='https://kristenmazza.dev/#projects'>
+              <NavLink
+                sx={{
+                  color: prefersDarkMode ? 'rgb(230, 230, 230)' : '#151515',
+                  '&:hover': {
+                    color: prefersDarkMode ? 'rgb(230, 230, 230)' : '#151515',
+                  },
+                }}
+                href='https://kristenmazza.dev/#about'
+              >
+                About
+              </NavLink>
+              <NavLink
+                sx={{
+                  color: prefersDarkMode ? 'rgb(230, 230, 230)' : '#151515',
+                  '&:hover': {
+                    color: prefersDarkMode ? 'rgb(230, 230, 230)' : '#151515',
+                  },
+                }}
+                href='https://kristenmazza.dev/#projects'
+              >
                 Projects
               </NavLink>
-              <NavLink href='https://blog.kristenmazza.dev'>Blog</NavLink>
-              <NavLink href='#contact'>Contact</NavLink>
+              <NavLink
+                sx={{
+                  color: prefersDarkMode ? 'rgb(230, 230, 230)' : '#151515',
+                  '&:hover': {
+                    color: prefersDarkMode ? 'rgb(230, 230, 230)' : '#151515',
+                  },
+                }}
+                href='https://blog.kristenmazza.dev'
+              >
+                Blog
+              </NavLink>
+              <NavLink
+                sx={{
+                  color: prefersDarkMode ? 'rgb(230, 230, 230)' : '#151515',
+                  '&:hover': {
+                    color: prefersDarkMode ? 'rgb(230, 230, 230)' : '#151515',
+                  },
+                }}
+                href='#contact'
+              >
+                Contact
+              </NavLink>
             </Box>
           </Toolbar>
         </Container>
@@ -197,6 +281,9 @@ function DrawerAppBar(props) {
             '& .MuiDrawer-paper': {
               boxSizing: 'border-box',
               width: drawerWidth,
+              backgroundColor: prefersDarkMode
+                ? 'rgb(18, 18, 18)'
+                : 'rgb(250, 250, 250)',
             },
           }}
         >

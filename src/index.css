@@ -20,3 +20,9 @@ html {
   scroll-padding: 2.3rem;
   -webkit-font-smoothing: auto;
 }
+
+@media (prefers-color-scheme: dark) {
+  #root {
+    background-color: rgb(18, 18, 18);
+  }
+}
