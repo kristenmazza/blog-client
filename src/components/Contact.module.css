@@ -147,3 +147,52 @@
     line-height: 1.5;
   }
 }
+
+@media (prefers-color-scheme: dark) {
+  .contact {
+    background-color: rgb(32, 36, 73);
+  }
+
+  .envelope {
+    background-color: rgb(69, 102, 64);
+  }
+
+  .envelope > img {
+    filter: invert(1) brightness(90%)
+      drop-shadow(0 0rem 0.05rem rgb(38, 60, 35));
+  }
+
+  .divider {
+    background-color: rgb(74, 82, 157);
+    background-image: linear-gradient(
+      left,
+      rgb(32, 36, 73) 2%,
+      rgb(74, 82, 157) 50%,
+      rgb(32, 36, 73) 98%
+    );
+    background-image: -o-linear-gradient(
+      left,
+      rgb(32, 36, 73) 2%,
+      rgb(74, 82, 157) 50%,
+      rgb(32, 36, 73) 98%
+    );
+    background-image: -moz-linear-gradient(
+      left,
+      rgb(32, 36, 73) 2%,
+      rgb(74, 82, 157) 50%,
+      rgb(32, 36, 73) 98%
+    );
+    background-image: -webkit-linear-gradient(
+      left,
+      rgb(32, 36, 73) 2%,
+      rgb(74, 82, 157) 50%,
+      rgb(32, 36, 73) 98%
+    );
+    background-image: -ms-linear-gradient(
+      left,
+      rgb(32, 36, 73) 2%,
+      rgb(74, 82, 157) 50%,
+      rgb(32, 36, 73) 98%
+    );
+  }
+}

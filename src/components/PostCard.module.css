@@ -103,3 +103,21 @@
     min-height: 100%;
   }
 }
+
+@media (prefers-color-scheme: dark) {
+  .card {
+    background-color: rgb(29, 29, 29);
+
+    .cardImageWrapper {
+      .cardImage {
+        filter: brightness(70%);
+      }
+    }
+
+    .cardBody {
+      .cardDate {
+        color: rgb(69, 102, 64);
+      }
+    }
+  }
+}
