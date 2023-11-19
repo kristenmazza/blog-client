@@ -37,15 +37,10 @@ const NavLink = styled(Link)(() => ({
 }));
 
 const NavButton = styled(Button)(() => ({
-  // color: '#151515',
   textAlign: 'center',
   textTransform: 'Capitalize',
   textDecoration: 'none',
   width: '100%',
-  '&:hover': {
-    // backgroundColor: '#ebedf4',
-    // color: '#151515',
-  },
 }));
 
 function DrawerAppBar(props) {

@@ -111,3 +111,28 @@
 .skeletonText {
   margin: 2rem 0;
 }
+
+@media (prefers-color-scheme: dark) {
+  .postDetails,
+  h1,
+  .postBody {
+    color: rgb(230, 230, 230);
+  }
+
+  .postDetails {
+    .column {
+      .lightText {
+        color: rgb(177, 184, 197);
+      }
+    }
+  }
+
+  .postBody {
+    & a {
+      color: rgb(156, 165, 233);
+      text-underline-offset: 5px;
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+    }
+  }
+}

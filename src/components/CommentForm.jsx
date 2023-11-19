@@ -1,4 +1,4 @@
-import { Button, FormControl, TextField } from '@mui/material';
+import { Button, FormControl, TextField, useMediaQuery } from '@mui/material';
 import styles from './CommentForm.module.css';
 import styled from '@emotion/styled';
 import { useState } from 'react';
@@ -32,6 +32,7 @@ export default function CommentForm({ setComments }) {
   const [author, setAuthor] = useState('');
   const [message, setMessage] = useState('');
   const { slug } = useParams();
+  const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -92,11 +93,15 @@ export default function CommentForm({ setComments }) {
             className={styles.button}
             type='submit'
             sx={{
-              backgroundColor: 'rgb(96, 107, 196)',
+              backgroundColor: prefersDarkMode
+                ? 'rgb(43, 48, 88)'
+                : 'rgb(111, 122, 202)',
               color: 'rgb(250, 250, 250)',
               '&:hover': {
                 transform: 'translateY(-1px)',
-                backgroundColor: 'rgb(111, 122, 202)',
+                backgroundColor: prefersDarkMode
+                  ? 'rgb(43, 48, 100)'
+                  : 'rgb(111, 122, 202)',
                 cursor: 'pointer',
               },
             }}

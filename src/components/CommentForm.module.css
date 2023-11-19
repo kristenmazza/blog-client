@@ -22,3 +22,9 @@
     width: 10rem;
   }
 }
+
+@media (prefers-color-scheme: dark) {
+  .formWrapper {
+    background-color: rgb(208, 210, 217);
+  }
+}
