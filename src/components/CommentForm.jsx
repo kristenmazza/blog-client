@@ -90,6 +90,11 @@ export default function CommentForm({ setComments }) {
                   ? '2px solid rgb(230, 230, 230)'
                   : '2px solid #000000',
               },
+              '& .MuiInput-underline:hover:after': {
+                borderBottom: prefersDarkMode
+                  ? '2px solid rgb(230, 230, 230)'
+                  : '2px solid #000000',
+              },
             }}
             id='name'
             label='Name'
@@ -121,6 +126,11 @@ export default function CommentForm({ setComments }) {
                   : '#000000',
               },
               '& .MuiInput-underline:hover:before': {
+                borderBottom: prefersDarkMode
+                  ? '2px solid rgb(230, 230, 230)'
+                  : '2px solid #000000',
+              },
+              '& .MuiInput-underline:hover:after': {
                 borderBottom: prefersDarkMode
                   ? '2px solid rgb(230, 230, 230)'
                   : '2px solid #000000',
