@@ -10,8 +10,18 @@
   transform-origin: '0 65%';
 }
 
+.skeletonRect {
+  background-color: rgb(222, 222, 222) !important;
+}
+
 @media (min-width: 900px) {
   .cardGrid {
     padding: 0 4rem;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .skeletonRect {
+    background-color: rgb(55, 55, 55) !important;
   }
 }

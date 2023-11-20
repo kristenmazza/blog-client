@@ -5,13 +5,12 @@ import styles from './PostList.module.css';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { format } from 'date-fns';
-import { Skeleton, Stack, useMediaQuery } from '@mui/material';
+import { Skeleton, Stack } from '@mui/material';
 
 export default function PostList() {
   const [posts, setPosts] = useState([]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
-  const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
 
   useEffect(() => {
     const getPosts = async () => {
@@ -36,19 +35,16 @@ export default function PostList() {
       <div className={styles.skeleton}>
         <Stack spacing={3} sx={{ width: '100%' }}>
           <Skeleton
-            sx={{ bgcolor: prefersDarkMode ? 'grey.900' : 'grey.300' }}
             className={styles.skeletonRect}
             height={250}
             variant='rounded'
           />
           <Skeleton
-            sx={{ bgcolor: prefersDarkMode ? 'grey.900' : 'grey.300' }}
             className={styles.skeletonRect}
             height={250}
             variant='rounded'
           />
           <Skeleton
-            sx={{ bgcolor: prefersDarkMode ? 'grey.900' : 'grey.300' }}
             className={styles.skeletonRect}
             height={250}
             variant='rounded'
